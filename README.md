@@ -83,8 +83,8 @@ npm install
 ### Backend
 
 ```bash
-cd src
-npm start
+cd backend
+npx nodemon src/app.js
 ```
 
 The backend server runs on `http://localhost:5000`.
