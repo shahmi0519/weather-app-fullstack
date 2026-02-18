@@ -17,7 +17,7 @@ The app allows users to:
 - Retrieve weather for the current user location.
 - Handle errors gracefully when a location is invalid or API fails.
 - Perform CRUD operations on weather data stored in the backend database.
-- Export stored weather data to JSON, CSV, and Markdown formats.
+- Export stored weather data to JSON, CSV, XML, Markdown, or PDF formats.
 
 ---
 
@@ -49,7 +49,7 @@ The app allows users to:
 - Services:
   - `weather.service.js` – Business logic for weather data handling.
 - Utilities:
-  - `export.utils.js` – Exports database data to JSON, CSV, Markdown.
+  - `export.utils.js` – Exports database data to JSON, CSV, XML, Markdown, or PDF.
 
 ---
 
@@ -104,8 +104,14 @@ The frontend runs on `http://localhost:5173`.
 
 - `POST /weather` – Add a new weather request to the database.
 - `GET /weather` – Get stored weather requests.
+- `GET /weather/:id` – Get a single weather record.
 - `PUT /weather/:id` – Update a weather record.
 - `DELETE /weather/:id` – Delete a weather record.
+- `GET /weather/export?format=json|csv|xml|markdown|pdf` – Export stored weather data.
+- `GET /weather/live?city=cityName` – Get live weather for a city.
+- `GET /weather/live/coords?lat=xx&lon=yy` – Get live weather for coordinates.
+- `GET /weather/maps/:id` – Get Google Maps link for a stored weather location.
+- `GET /weather/youtube/:id` – Get related YouTube videos for a location.
 
 ---
 
@@ -121,3 +127,4 @@ The frontend runs on `http://localhost:5173`.
 - Real-time weather data is retrieved via external APIs.
 - The frontend is fully responsive and functional across different screen sizes.
 - Backend ensures CRUD functionality, API integration, and data persistence.
+- Data can be exported in multiple formats for reporting or analysis.
