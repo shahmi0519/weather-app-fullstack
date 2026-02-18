@@ -1,128 +1,123 @@
-# Weather App - Full-Stack Assessment
+# Full-Stack Weather App
+
+**Author:** Abdul Jabbar Ahamed Shahmi  
+**Role:** AI & Machine Learning Engineer Intern  
+**Project:** Weather App – Full Stack Technical Assessment  
+
+---
 
 ## Project Overview
 
-This is a Full-Stack Weather App built for the AI Engineer Intern Technical Assessment. The app allows users to input a location (Zip Code, GPS Coordinates, Landmarks, Town, City) to retrieve the current weather, a 5-day forecast, and additional weather details. Users can also view weather for their current location. The app includes CRUD functionality, data persistence, and data export options.
+This project is a full-stack weather application built to retrieve and display real-time weather data for user-specified locations. It meets both frontend and backend assessment requirements for a technical internship.
+
+The app allows users to:
+
+- Enter a location (ZIP code, GPS coordinates, city, or landmark) and view the current weather.
+- See a 5-day weather forecast.
+- Retrieve weather for the current user location.
+- Handle errors gracefully when a location is invalid or API fails.
+- Perform CRUD operations on weather data stored in the backend database.
+- Export stored weather data to JSON, CSV, and Markdown formats.
 
 ---
 
 ## Features
 
-* Current weather for any location
-* 5-day weather forecast
-* Location input validation and error handling
-* Store weather requests in a database (CRUD operations)
-* Export weather data in JSON, CSV, or PDF
-* Integration with external APIs (OpenWeatherMap, Google Maps, YouTube)
+### Frontend
+
+- Built with **React**.
+- Components:
+  - `SearchBar.jsx` – User input for location.
+  - `WeatherCard.jsx` – Displays current weather.
+  - `ForecastList.jsx` – Displays 5-day forecast.
+  - `ErrorMessage.jsx` – Handles errors and displays messages.
+- Services:
+  - `weatherApi.js` – Handles API requests to fetch weather data.
+- Styles:
+  - `app.css` – Responsive design for desktop and mobile.
+- Supports responsive design for multiple devices (desktop, tablet, mobile).
+
+### Backend
+
+- Built with **Node.js** and **Express.js**.
+- Controllers:
+  - `weather.controller.js` – Handles API logic and database interactions.
+- Models:
+  - `WeatherRequest.js` – Weather data schema.
+- Routes:
+  - `weather.routes.js` – RESTful endpoints for CRUD operations.
+- Services:
+  - `weather.service.js` – Business logic for weather data handling.
+- Utilities:
+  - `export.utils.js` – Exports database data to JSON, CSV, Markdown.
 
 ---
 
-## Technology Stack
+## Installation
 
-**Frontend:** HTML, CSS, JavaScript
+1. Clone the repository:
 
-**Backend:** Node.js, Express.js
-
-**Database:** MongoDB (NoSQL) or PostgreSQL/MySQL (SQL)
-
-**APIs:** OpenWeatherMap API, Google Maps API, YouTube API (optional)
-
----
-
-## Folder Structure
-
-```
-weather-app-fullstack/
-│
-├── frontend/
-│   ├── index.html
-│   ├── style.css
-│   ├── app.js
-│   └── assets/        # icons/images
-│
-├── backend/
-│   ├── server.js
-│   ├── routes/
-│   │   └── weather.js
-│   ├── controllers/
-│   │   └── weatherController.js
-│   ├── models/
-│   │   └── Weather.js
-│   └── config/
-│       └── db.js
-│
-├── README.md
-├── .gitignore
-├── package.json
-└── requirements.txt
+```bash
+git clone <repository-url>
+cd weather-app-fullstack
 ```
 
+2. Install backend dependencies:
+
+```bash
+cd src
+npm install
+```
+
+3. Install frontend dependencies:
+
+```bash
+cd ../frontend
+npm install
+```
+
 ---
 
-## Setup Instructions
+## Running the App
+
+### Backend
+
+```bash
+cd src
+npm start
+```
+
+The backend server runs on `http://localhost:5000`.
 
 ### Frontend
 
-Open the `frontend/index.html` file in your browser or use a live server extension.
-
-### Backend (Node.js Example)
-
 ```bash
-# Clone repository
-git clone https://github.com/yourusername/weather-app-fullstack.git
-cd weather-app-fullstack/backend
-
-# Install dependencies
-npm install
-
-# Start backend server
-node server.js
+cd frontend
+npm run dev
 ```
 
-### Environment Variables
-
-Create a `.env` file in `backend/config/` for API keys:
-
-```
-OPENWEATHER_API_KEY=your_openweathermap_key
-GOOGLE_MAPS_API_KEY=your_google_maps_key
-```
+The frontend runs on `http://localhost:5173`.
 
 ---
 
-## Usage
+## API Endpoints
 
-1. Open the frontend and enter a location.
-2. View current weather and 5-day forecast.
-3. Save requests to the database.
-4. Read, update, or delete previous entries.
-5. Export data in JSON, CSV, or PDF formats.
-
----
-
-## APIs Used
-
-* OpenWeatherMap API: Real-time weather and forecast data
-* Google Maps API: Location validation and maps
-* YouTube API: Optional videos related to the location
+- `POST /weather` – Add a new weather request to the database.
+- `GET /weather` – Get stored weather requests.
+- `PUT /weather/:id` – Update a weather record.
+- `DELETE /weather/:id` – Delete a weather record.
 
 ---
 
-## Demo Video
+## Error Handling
 
-Link to demo video showcasing features and code: [Demo Video](https://drive.google.com/your-demo-link)
-
----
-
-## Author
-
-**Abdul Jabbar Ahamed Shahmi**
-
-* AI & Machine Learning Engineer Intern
-* Product Manager Accelerator (LinkedIn: [https://www.linkedin.com/company/product-manager-accelerator/](https://www.linkedin.com/company/product-manager-accelerator/))
+- If the location is invalid, the app displays an error message using `ErrorMessage.jsx`.
+- API failures are handled gracefully with user-friendly messages.
 
 ---
 
-## License
+## Notes
 
-This project is submitted for the AI Engineer Intern Technical Assessment and is intended for evaluation purposes.
+- Real-time weather data is retrieved via external APIs.
+- The frontend is fully responsive and functional across different screen sizes.
+- Backend ensures CRUD functionality, API integration, and data persistence.
