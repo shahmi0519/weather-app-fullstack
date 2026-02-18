@@ -65,7 +65,7 @@ cd weather-app-fullstack
 2. Install backend dependencies:
 
 ```bash
-cd src
+cd ../backend
 npm install
 ```
 
